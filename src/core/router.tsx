@@ -1,5 +1,10 @@
 import * as React from 'react'
-import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import {
+  Route,
+  Router as BrowserRouter,
+  Switch,
+  Redirect,
+} from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import Routes from '../constants/routes'
 import PrivateRouteWrapper from './private-route-wrapper'
@@ -9,7 +14,7 @@ export const history = createBrowserHistory()
 export const catchChunkError = (
   fn: Function,
   retriesLeft = 3,
-  interval = 500,
+  interval = 500
 ): Promise<{ default: React.ComponentType<any> }> => {
   return new Promise((resolve, reject) => {
     fn()
@@ -28,8 +33,12 @@ export const catchChunkError = (
   })
 }
 
-const LoginPage = React.lazy(() => catchChunkError(() => import('../components/pages/login')))
-const AuthenticatedPage = React.lazy(() => catchChunkError(() => import('../components/pages/authenticated')))
+const LoginPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/login'))
+)
+const AuthenticatedPage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/authenticated'))
+)
 
 const Router = () => (
   <BrowserRouter history={history}>
