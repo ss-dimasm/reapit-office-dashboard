@@ -39,6 +39,9 @@ const LoginPage = React.lazy(() =>
 const AuthenticatedPage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/authenticated'))
 )
+const OfficePage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/offices'))
+)
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -47,7 +50,8 @@ const Router = () => (
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper>
           <Switch>
-            <Route path={Routes.HOME} component={AuthenticatedPage} />
+            <Route exact path={Routes.HOME} component={AuthenticatedPage} />
+            <Route path={Routes.OFFICE} component={OfficePage} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

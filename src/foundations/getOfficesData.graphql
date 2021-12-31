@@ -1,0 +1,12 @@
+query GetOffices {
+  GetOffices {
+    pageSize
+    pageCount
+    pageNumber
+    totalCount
+    _embedded {
+      id
+      name
+    }
+  }
+}
