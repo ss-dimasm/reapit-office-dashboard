@@ -1,12 +1,15 @@
 query GetOffices {
-  GetOffices {
+  OfficeData: GetOffices(pageSize: 100, sortBy: "modified") {
     pageSize
-    pageCount
     pageNumber
     totalCount
     _embedded {
       id
       name
+      manager
+      email
+      workPhone
+      created
     }
   }
 }

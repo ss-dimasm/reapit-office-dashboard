@@ -12,3 +12,6 @@ generates:
   ./graphql.schema.json:
     plugins:
       - '@graphql-codegen/introspection'
+hooks:
+  afterAllFileWrite:
+    - prettier --write

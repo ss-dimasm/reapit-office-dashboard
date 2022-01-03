@@ -3340,10 +3340,9 @@ export type GetOfficesQueryVariables = Exact<{ [key: string]: never }>
 
 export type GetOfficesQuery = {
   __typename?: 'Query'
-  GetOffices: {
+  OfficeData: {
     __typename?: 'PagedResultOfficeModel'
     pageSize?: number | null | undefined
-    pageCount?: number | null | undefined
     pageNumber?: number | null | undefined
     totalCount?: number | null | undefined
     _embedded?:
@@ -3351,9 +3350,72 @@ export type GetOfficesQuery = {
           __typename?: 'OfficeModel'
           id?: string | null | undefined
           name?: string | null | undefined
+          manager?: string | null | undefined
+          email?: string | null | undefined
+          workPhone?: string | null | undefined
+          created?: string | null | undefined
         }>
       | null
       | undefined
+  }
+}
+
+export type NegotiatorScreenQueryVariables = Exact<{
+  OfficeId?: InputMaybe<Array<Scalars['String']> | Scalars['String']>
+}>
+
+export type NegotiatorScreenQuery = {
+  __typename?: 'Query'
+  GetNegotiators: {
+    __typename?: 'PagedResultNegotiatorModel'
+    totalCount?: number | null | undefined
+    _embedded?:
+      | Array<{
+          __typename?: 'NegotiatorModel'
+          id?: string | null | undefined
+          name?: string | null | undefined
+          jobTitle?: string | null | undefined
+          workPhone?: string | null | undefined
+          email?: string | null | undefined
+          created?: string | null | undefined
+        }>
+      | null
+      | undefined
+  }
+}
+
+export type SummaryScreenQueryVariables = Exact<{
+  OfficeId?: InputMaybe<Array<Scalars['String']> | Scalars['String']>
+}>
+
+export type SummaryScreenQuery = {
+  __typename?: 'Query'
+  GetTasks: {
+    __typename?: 'PagedResultTaskModel'
+    totalCount?: number | null | undefined
+    _embedded?:
+      | Array<
+          | {
+              __typename?: 'TaskModel'
+              id?: string | null | undefined
+              text?: string | null | undefined
+              landlordId?: string | null | undefined
+              applicantId?: string | null | undefined
+              senderId?: string | null | undefined
+              recipientType?: string | null | undefined
+              propertyId?: string | null | undefined
+              created?: string | null | undefined
+              activates?: string | null | undefined
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined
+  }
+  GetNegotiators: {
+    __typename?: 'PagedResultNegotiatorModel'
+    totalCount?: number | null | undefined
   }
 }
 
@@ -3395,14 +3457,17 @@ export type GetAllPropertiesQuery = {
 
 export const GetOfficesDocument = `
     query GetOffices {
-  GetOffices {
+  OfficeData: GetOffices(pageSize: 100, sortBy: "modified") {
     pageSize
-    pageCount
     pageNumber
     totalCount
     _embedded {
       id
       name
+      manager
+      email
+      workPhone
+      created
     }
   }
 }
@@ -3418,6 +3483,82 @@ export const useGetOfficesQuery = <TData = GetOfficesQuery, TError = unknown>(
     fetcher<GetOfficesQuery, GetOfficesQueryVariables>(
       client,
       GetOfficesDocument,
+      variables,
+      headers
+    ),
+    options
+  )
+export const NegotiatorScreenDocument = `
+    query NegotiatorScreen($OfficeId: [String!]) {
+  GetNegotiators(officeId: $OfficeId) {
+    totalCount
+    _embedded {
+      id
+      name
+      jobTitle
+      workPhone
+      email
+      created
+    }
+  }
+}
+    `
+export const useNegotiatorScreenQuery = <
+  TData = NegotiatorScreenQuery,
+  TError = unknown
+>(
+  client: GraphQLClient,
+  variables?: NegotiatorScreenQueryVariables,
+  options?: UseQueryOptions<NegotiatorScreenQuery, TError, TData>,
+  headers?: RequestInit['headers']
+) =>
+  useQuery<NegotiatorScreenQuery, TError, TData>(
+    variables === undefined
+      ? ['NegotiatorScreen']
+      : ['NegotiatorScreen', variables],
+    fetcher<NegotiatorScreenQuery, NegotiatorScreenQueryVariables>(
+      client,
+      NegotiatorScreenDocument,
+      variables,
+      headers
+    ),
+    options
+  )
+export const SummaryScreenDocument = `
+    query SummaryScreen($OfficeId: [String!]) {
+  GetTasks(officeId: $OfficeId) {
+    totalCount
+    _embedded {
+      id
+      text
+      landlordId
+      applicantId
+      senderId
+      recipientType
+      propertyId
+      created
+      activates
+    }
+  }
+  GetNegotiators(officeId: $OfficeId) {
+    totalCount
+  }
+}
+    `
+export const useSummaryScreenQuery = <
+  TData = SummaryScreenQuery,
+  TError = unknown
+>(
+  client: GraphQLClient,
+  variables?: SummaryScreenQueryVariables,
+  options?: UseQueryOptions<SummaryScreenQuery, TError, TData>,
+  headers?: RequestInit['headers']
+) =>
+  useQuery<SummaryScreenQuery, TError, TData>(
+    variables === undefined ? ['SummaryScreen'] : ['SummaryScreen', variables],
+    fetcher<SummaryScreenQuery, SummaryScreenQueryVariables>(
+      client,
+      SummaryScreenDocument,
       variables,
       headers
     ),

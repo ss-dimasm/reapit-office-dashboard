@@ -1,0 +1,13 @@
+query NegotiatorScreen($OfficeId: [String!]) {
+  GetNegotiators(officeId: $OfficeId) {
+    totalCount
+    _embedded {
+      id
+      name
+      jobTitle
+      workPhone
+      email
+      created
+    }
+  }
+}

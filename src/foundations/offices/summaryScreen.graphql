@@ -1,0 +1,19 @@
+query SummaryScreen($OfficeId: [String!]) {
+  GetTasks(officeId: $OfficeId) {
+    totalCount
+    _embedded {
+      id
+      text
+      landlordId
+      applicantId
+      senderId
+      recipientType
+      propertyId
+      created
+      activates
+    }
+  }
+  GetNegotiators(officeId: $OfficeId) {
+    totalCount
+  }
+}

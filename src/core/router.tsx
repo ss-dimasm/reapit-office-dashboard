@@ -42,6 +42,9 @@ const AuthenticatedPage = React.lazy(() =>
 const OfficePage = React.lazy(() =>
   catchChunkError(() => import('../components/pages/offices'))
 )
+const NegotiatorBasedOfficePage = React.lazy(() =>
+  catchChunkError(() => import('../components/pages/negotiatorBasedOffice'))
+)
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -51,6 +54,10 @@ const Router = () => (
         <PrivateRouteWrapper>
           <Switch>
             <Route exact path={Routes.HOME} component={AuthenticatedPage} />
+            <Route
+              path={`${Routes.OFFICE}/:officeId${Routes.NEGOTIATOR}/:negotiatorId`}
+              component={NegotiatorBasedOfficePage}
+            />
             <Route path={Routes.OFFICE} component={OfficePage} />
           </Switch>
         </PrivateRouteWrapper>
