@@ -12,6 +12,7 @@ import {
 import { OfficeModel } from '../../../../generated/graphql'
 import Summary from './summary'
 import Negotiator from './negotiator'
+import Properties from './properties'
 
 interface DashboardOfficeProps {
   OfficeData: OfficeModel
@@ -55,11 +56,17 @@ const DashboardOffice: FC<DashboardOfficeProps> = (props): ReactElement => {
               >
                 Negotiators
               </SecondaryNavItem>
+              <SecondaryNavItem
+                active={selectedItem === 3}
+                onClick={() => setSelectedItem(3)}
+              >
+                Handled Properties
+              </SecondaryNavItem>
             </SecondaryNav>
           </SecondaryNavContainer>
         </div>
         <div
-          className="el-pl5"
+          className="el-ml8 el-box-shadow el-p6"
           style={{
             width: '-webkit-fill-available',
             height: '100vh',
@@ -67,8 +74,10 @@ const DashboardOffice: FC<DashboardOfficeProps> = (props): ReactElement => {
         >
           {selectedItem === 1 ? (
             <Summary OfficeData={props.OfficeData} />
-          ) : (
+          ) : selectedItem === 2 ? (
             <Negotiator OfficeData={props.OfficeData} />
+          ) : (
+            <Properties officeData={props.OfficeData!} />
           )}
         </div>
       </FlexContainer>

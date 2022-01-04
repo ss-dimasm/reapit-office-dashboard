@@ -7,4 +7,6 @@ export const GRAPHQL_ENDPOINT = 'https://graphql.reapit.cloud/graphql'
 
 export const URLS = {
   CONFIGURATION_APPOINTMENT_TYPES: '/configuration/appointmentTypes',
+  PROPERTIES_PAGED: '/properties',
+  PROPERTY_IMAGES_PAGED: '/propertyImages',
 }

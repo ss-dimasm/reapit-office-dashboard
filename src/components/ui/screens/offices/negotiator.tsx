@@ -58,7 +58,9 @@ const Negotiator: FC<NegotiatorProps> = (props): ReactElement => {
         return (
           <React.Fragment key={negotiator.id}>
             <Link
+              target="_blank"
               to={`${Routes.OFFICE}/${OfficeData.id}${Routes.NEGOTIATOR}/${negotiator.id}`}
+              style={{ width: '100%', display: 'inline-block' }}
             >
               <Card
                 hasListCard

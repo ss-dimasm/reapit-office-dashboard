@@ -42,7 +42,7 @@ const Summary: FC<SummaryProps> = (props) => {
 
   return (
     <FlexContainer isFlexJustifyBetween>
-      <div style={{ width: '80%' }} className="el-box-shadow el-p6">
+      <div style={{ width: '80%' }}>
         <Subtitle>Task list</Subtitle>
         <Table
           numberColumns={3}

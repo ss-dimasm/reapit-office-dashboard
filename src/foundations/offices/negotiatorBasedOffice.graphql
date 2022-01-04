@@ -1,0 +1,19 @@
+query NegotiatorBasedOfficeScreen($NegotiatorID: String!, $OfficeId: String!) {
+  GetNegotiatorById(id: $NegotiatorID) {
+    id
+    jobTitle
+    name
+    email
+    workPhone
+    mobilePhone
+    created
+  }
+  GetOfficeById(id: $OfficeId) {
+    id
+    name
+    manager
+    email
+    workPhone
+    created
+  }
+}

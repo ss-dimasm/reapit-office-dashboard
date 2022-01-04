@@ -3360,6 +3360,34 @@ export type GetOfficesQuery = {
   }
 }
 
+export type NegotiatorBasedOfficeScreenQueryVariables = Exact<{
+  NegotiatorID: Scalars['String']
+  OfficeId: Scalars['String']
+}>
+
+export type NegotiatorBasedOfficeScreenQuery = {
+  __typename?: 'Query'
+  GetNegotiatorById: {
+    __typename?: 'NegotiatorModel'
+    id?: string | null | undefined
+    jobTitle?: string | null | undefined
+    name?: string | null | undefined
+    email?: string | null | undefined
+    workPhone?: string | null | undefined
+    mobilePhone?: string | null | undefined
+    created?: string | null | undefined
+  }
+  GetOfficeById: {
+    __typename?: 'OfficeModel'
+    id?: string | null | undefined
+    name?: string | null | undefined
+    manager?: string | null | undefined
+    email?: string | null | undefined
+    workPhone?: string | null | undefined
+    created?: string | null | undefined
+  }
+}
+
 export type NegotiatorScreenQueryVariables = Exact<{
   OfficeId?: InputMaybe<Array<Scalars['String']> | Scalars['String']>
 }>
@@ -3486,6 +3514,44 @@ export const useGetOfficesQuery = <TData = GetOfficesQuery, TError = unknown>(
       variables,
       headers
     ),
+    options
+  )
+export const NegotiatorBasedOfficeScreenDocument = `
+    query NegotiatorBasedOfficeScreen($NegotiatorID: String!, $OfficeId: String!) {
+  GetNegotiatorById(id: $NegotiatorID) {
+    id
+    jobTitle
+    name
+    email
+    workPhone
+    mobilePhone
+    created
+  }
+  GetOfficeById(id: $OfficeId) {
+    id
+    name
+    manager
+    email
+    workPhone
+    created
+  }
+}
+    `
+export const useNegotiatorBasedOfficeScreenQuery = <
+  TData = NegotiatorBasedOfficeScreenQuery,
+  TError = unknown
+>(
+  client: GraphQLClient,
+  variables: NegotiatorBasedOfficeScreenQueryVariables,
+  options?: UseQueryOptions<NegotiatorBasedOfficeScreenQuery, TError, TData>,
+  headers?: RequestInit['headers']
+) =>
+  useQuery<NegotiatorBasedOfficeScreenQuery, TError, TData>(
+    ['NegotiatorBasedOfficeScreen', variables],
+    fetcher<
+      NegotiatorBasedOfficeScreenQuery,
+      NegotiatorBasedOfficeScreenQueryVariables
+    >(client, NegotiatorBasedOfficeScreenDocument, variables, headers),
     options
   )
 export const NegotiatorScreenDocument = `

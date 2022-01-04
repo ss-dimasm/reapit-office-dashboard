@@ -85,3 +85,7 @@ export const loginImages = css`
   width: auto;
   position: relative;
 `
+export const negotiatorProfile = css`
+  height: 250px;
+  width: 20%;
+`
