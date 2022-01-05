@@ -11,6 +11,7 @@ const LoadingIndicator: FC<LoadingIndicatorProps> = (props): ReactElement => {
   }
   return (
     <div
+      data-testid="loadingIndicator"
       className={`el-flex ${
         props.isFullScreen && 'el-flex-justify-center'
       } elH-full el-flex-align-center`}

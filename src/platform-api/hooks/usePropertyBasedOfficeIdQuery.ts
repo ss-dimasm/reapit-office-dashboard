@@ -1,17 +1,18 @@
 import { ReapitConnectSession } from '@reapit/connect-session'
 import { PropertyModelPagedResult } from '@reapit/foundations-ts-definitions'
-import axios from 'axios'
+// eslint-disable-next-line
+import * as axios from 'axios'
 import { useQuery } from 'react-query'
 
 import { BASE_HEADERS, URLS } from '../../constants/api'
 
-const getPropertiesByOfficeId = async (
+export const getPropertiesByOfficeId = async (
   session: ReapitConnectSession,
   officeId: string
 ): Promise<PropertyModelPagedResult | undefined> => {
   if (!session) return
 
-  const { data } = await axios.get(
+  const { data } = await axios.default.get(
     `${window.reapit.config.platformApiUrl}${URLS.PROPERTIES_PAGED}?officeId=${officeId}&pageSize=100`,
     {
       headers: {

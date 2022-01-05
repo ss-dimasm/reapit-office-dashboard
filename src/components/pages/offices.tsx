@@ -79,6 +79,7 @@ const Offices: FC<{}> = () => {
                     listCardItemIcon: 'emailSystem',
                   },
                 ]}
+                data-testid="office-card"
                 style={{ width: '32%', margin: '0.5rem' }}
                 onMouseOver={(e: React.MouseEvent<HTMLDivElement>) =>
                   e.currentTarget.classList.add('el-card-focussed')
