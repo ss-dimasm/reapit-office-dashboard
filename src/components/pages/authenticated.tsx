@@ -9,12 +9,10 @@ export type AuthenticatedProps = {}
 
 export const Authenticated: FC<AuthenticatedProps> = () => {
   const { connectSession } = useReapitConnect(reapitConnectBrowserSession)
-  const [appointmentConfigTypes, setAppointmentConfigTypes] = useState<
-    ListItemModel[]
-  >([])
+  const [, setAppointmentConfigTypes] = useState<ListItemModel[]>([])
 
   useEffect(() => {
-    const fetchAppoinmentConfigs = async () => {
+    const fetchAppointmentConfigs = async () => {
       if (!connectSession) return
       const serviceResponse = await configurationAppointmentsApiService(
         connectSession
@@ -24,11 +22,10 @@ export const Authenticated: FC<AuthenticatedProps> = () => {
       }
     }
     if (connectSession) {
-      fetchAppoinmentConfigs()
+      fetchAppointmentConfigs()
     }
   }, [connectSession])
 
-  console.log('Appointment Config Types are: ', appointmentConfigTypes)
   return (
     <>
       <Title>Welcome To Reapit Foundations</Title>

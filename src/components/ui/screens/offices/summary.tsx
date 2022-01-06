@@ -92,7 +92,9 @@ const Summary: FC<SummaryProps> = (props) => {
       </div>
       <div style={{ width: '19%' }} className="el-box-shadow el-p6">
         <BodyText>Total Agent</BodyText>
-        <Title hasCenteredText>{data?.GetNegotiators.totalCount}</Title>
+        <Title datatest-id="negotiatorCount" hasCenteredText>
+          {data?.GetNegotiators.totalCount}
+        </Title>
       </div>
     </FlexContainer>
   )

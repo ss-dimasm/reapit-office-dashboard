@@ -71,7 +71,13 @@ const Properties: FC<PropertiesProps> = (props): ReactElement => {
         ],
         expandableContent: {
           onClick: () => openModalProperty(property ?? '-'),
-          cellContent: <Icon icon="viewSolidSystem" intent="primary" />,
+          cellContent: (
+            <Icon
+              icon="viewSolidSystem"
+              testdata-id="test-icon-modal"
+              intent="primary"
+            />
+          ),
         },
       })
     })

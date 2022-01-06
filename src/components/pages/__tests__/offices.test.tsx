@@ -1,12 +1,13 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Offices from '../offices'
-
 import { QueryClient, QueryClientProvider } from 'react-query'
+
+import { Card } from '@reapit/elements'
+
+import Offices from '../offices'
 import LoadingIndicator from '../../ui/loading'
 import { useGetOfficesQuery } from '../../../generated/graphql'
 import { OFFICE_PAGED_EXAMPLE } from '../__mocks__/office.mock'
-import { Card } from '@reapit/elements'
 
 const mockedUseGetOfficeQuery = useGetOfficesQuery as jest.Mock<any>
 
@@ -70,6 +71,6 @@ describe('Office Page', () => {
     const card = wrapper.find(Card)
     expect(card).toHaveLength(1)
     expect(card.text().includes('Reapit')).toBeTruthy()
-    expect(card.debug()).toMatchSnapshot()
+    expect(card).toMatchSnapshot()
   })
 })

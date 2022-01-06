@@ -1,3 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Nav should match a snapshot 1`] = `ShallowWrapper {}`;
+exports[`Nav should match a snapshot 1`] = `
+<Component
+  options={
+    Array [
+      Object {
+        "itemIndex": 0,
+      },
+      Object {
+        "callback": [Function],
+        "href": undefined,
+        "iconId": "appsMenu",
+        "itemIndex": 1,
+        "text": "Apps",
+      },
+      Object {
+        "callback": [Function],
+        "href": "/office",
+        "iconId": "officesMenu",
+        "itemIndex": 2,
+        "text": "My Office",
+      },
+      Object {
+        "callback": [Function],
+        "iconId": "logoutMenu",
+        "isSecondary": true,
+        "itemIndex": 3,
+        "text": "Logout",
+      },
+    ]
+  }
+/>
+`;

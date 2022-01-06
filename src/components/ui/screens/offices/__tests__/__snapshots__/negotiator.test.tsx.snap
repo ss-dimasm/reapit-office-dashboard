@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Negotiator/> should render the negotiator component 1`] = `
+<QueryClientProvider
+  client={
+    QueryClient {
+      "defaultOptions": Object {
+        "queries": Object {
+          "retry": false,
+        },
+      },
+      "mutationCache": MutationCache {
+        "config": Object {},
+        "listeners": Array [],
+        "mutationId": 0,
+        "mutations": Array [],
+      },
+      "mutationDefaults": Array [],
+      "queryCache": QueryCache {
+        "config": Object {},
+        "listeners": Array [],
+        "queries": Array [],
+        "queriesMap": Object {},
+      },
+      "queryDefaults": Array [],
+      "unsubscribeFocus": [Function],
+      "unsubscribeOnline": [Function],
+    }
+  }
+>
+  <Negotiator
+    OfficeData={[MockFunction]}
+  >
+    <LoadingIndicator
+      isFullScreen={true}
+      label="Please wait..."
+    >
+      <div
+        className="el-flex el-flex-justify-center elH-full el-flex-align-center"
+        style={
+          Object {
+            "height": "70%",
+          }
+        }
+      >
+        <Ut
+          data-testid="loadingIndicator"
+          label="Please wait..."
+        >
+          <ElLoaderContainer
+            className=""
+          >
+            <div>
+              <ElLoaderLabel>
+                <p>
+                  Please wait...
+                </p>
+              </ElLoaderLabel>
+              <ElLoader
+                data-testid="loadingIndicator"
+              >
+                <div
+                  data-testid="loadingIndicator"
+                >
+                  <ElLoaderMovingBar>
+                    <div />
+                  </ElLoaderMovingBar>
+                </div>
+              </ElLoader>
+            </div>
+          </ElLoaderContainer>
+        </Ut>
+      </div>
+    </LoadingIndicator>
+  </Negotiator>
+</QueryClientProvider>
+`;

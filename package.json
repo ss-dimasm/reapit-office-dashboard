@@ -49,6 +49,11 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "devDependencies": {
     "@graphql-codegen/cli": "2.3.1",
     "@graphql-codegen/introspection": "2.1.1",
@@ -74,6 +79,7 @@
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
+    "enzyme-to-json": "^3.6.2",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

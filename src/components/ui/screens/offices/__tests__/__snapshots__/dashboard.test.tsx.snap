@@ -1,3 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard Office It should render Dashboard Office Component 1`] = `ShallowWrapper {}`;
+exports[`Dashboard Office It should render Dashboard Office Component 1`] = `
+<Fragment>
+  <Component>
+    <div
+      className="el-mr6"
+    >
+      <He
+        chevronLeft={true}
+        intent="critical"
+        onClick={[Function]}
+      >
+        Back
+      </He>
+    </div>
+    <div>
+      <Component
+        hasBoldText={true}
+        hasNoMargin={true}
+      >
+        Hello, Admin 
+        Reapit
+        !
+      </Component>
+    </div>
+  </Component>
+  <Component
+    className="el-mt6"
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "red",
+          "height": "100vh",
+          "width": "14rem",
+        }
+      }
+    >
+      <Component
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
+      >
+        <Component>
+          <Component
+            active={true}
+            onClick={[Function]}
+          >
+            Summary
+          </Component>
+          <Component
+            active={false}
+            datatest-id="test-negotiator-navbar"
+            onClick={[Function]}
+          >
+            Negotiators
+          </Component>
+          <Component
+            active={false}
+            onClick={[Function]}
+          >
+            Handled Properties
+          </Component>
+        </Component>
+      </Component>
+    </div>
+    <div
+      className="el-ml8 el-box-shadow el-p6"
+      style={
+        Object {
+          "height": "100vh",
+          "width": "-webkit-fill-available",
+        }
+      }
+    >
+      <Summary
+        OfficeData={
+          Object {
+            "created": "2020-04-24T08:01:29Z",
+            "email": "example@email.com",
+            "id": "GBL",
+            "manager": "Mr John Smith",
+            "name": "Reapit",
+            "workPhone": "01234 567890",
+          }
+        }
+      />
+    </div>
+  </Component>
+</Fragment>
+`;
+
+exports[`Dashboard Office should have navigation bar 1`] = `
+<Component>
+  <Component
+    active={true}
+    onClick={[Function]}
+  >
+    Summary
+  </Component>
+  <Component
+    active={false}
+    datatest-id="test-negotiator-navbar"
+    onClick={[Function]}
+  >
+    Negotiators
+  </Component>
+  <Component
+    active={false}
+    onClick={[Function]}
+  >
+    Handled Properties
+  </Component>
+</Component>
+`;

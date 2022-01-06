@@ -51,6 +51,7 @@ const DashboardOffice: FC<DashboardOfficeProps> = (props): ReactElement => {
                 Summary
               </SecondaryNavItem>
               <SecondaryNavItem
+                datatest-id="test-negotiator-navbar"
                 active={selectedItem === 2}
                 onClick={() => setSelectedItem(2)}
               >

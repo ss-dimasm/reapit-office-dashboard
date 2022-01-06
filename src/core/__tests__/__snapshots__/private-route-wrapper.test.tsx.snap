@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PrivateRouter should match a snapshot 1`] = `ShallowWrapper {}`;
+exports[`PrivateRouter should match a snapshot 1`] = `
+<Component>
+  <Nav />
+  <Component>
+    <Component>
+      <Suspense
+        fallback={
+          <Ut
+            fullPage={true}
+            label="Loading"
+          />
+        }
+      />
+    </Component>
+  </Component>
+</Component>
+`;
